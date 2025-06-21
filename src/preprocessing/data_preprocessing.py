@@ -47,8 +47,8 @@ images = np.array(images)
 labels = np.array(labels)
 
 # Save processed images and labels
-np.save(os.path.join(processed_dir, "DDD_images.npy"), images)
-np.save(os.path.join(processed_dir, "DDD_labels.npy"), labels)
+np.save(os.path.join(processed_dir, "images.npy"), images)
+np.save(os.path.join(processed_dir, "labels.npy"), labels)
 
 
     
