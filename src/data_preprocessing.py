@@ -46,10 +46,9 @@ for label, folder in enumerate(folders):
 images = np.array(images)
 labels = np.array(labels)
 
-print(labels[:5])
 # Save processed images and labels
-# np.save(os.path.join(processed_dir, "DDD_images.npy"), images)
-# np.save(os.path.join(processed_dir, "DDD_labels.npy"), labels)
+np.save(os.path.join(processed_dir, "DDD_images.npy"), images)
+np.save(os.path.join(processed_dir, "DDD_labels.npy"), labels)
 
 
     
