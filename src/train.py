@@ -3,8 +3,8 @@ import datetime
 from models.resnet_model import get_resnet50_model
 from tensorflow.keras.optimizers import Adam
 from tensorflow.keras.losses import BinaryCrossentropy
-from tensorflow.keras.metrics import Accuracy, Precision, Recall, AUC, F1Score
-from tensorflow.keras.callbacks import ModelCheckpoint, TensorBoard
+from tensorflow.keras.metrics import BinaryAccuracy, Precision, Recall, AUC, F1Score
+from tensorflow.keras.callbacks import EarlyStopping, ModelCheckpoint, TensorBoard
 
 # Load train dataset
 X_train = np.load("data/processed/DDD-kaggle/train_images.npy")
@@ -22,12 +22,14 @@ y_val = y_val.reshape(-1, 1)
 model = get_resnet50_model()
 
 # Configure model settings for training
-model.compile(optimizer=Adam(learning_rate=1e-4), loss=BinaryCrossentropy(), metrics=[Accuracy(), Precision(), Recall(), AUC(), F1Score()])
+model.compile(optimizer=Adam(learning_rate=1e-4), loss=BinaryCrossentropy(), metrics=[BinaryAccuracy(), Precision(), Recall(), AUC(), F1Score(threshold=0.5)])
 
 # Callbacks
+# Create the EarlyStopping callback
+early_stop = EarlyStopping(monitor='val_loss', patience=3, restore_best_weights=True)
 checkpoint = ModelCheckpoint("models/resnet50_modified.h5", save_best_only=True)
 log_dir = "logs/fit/" #+ datetime.datetime.now().to_str()
 tensorboard = TensorBoard(log_dir=log_dir)
 
 # Train modified ResNet50
-history = model.fit(X_train, y_train, validation_data=[X_val, y_val], batch_size=32, epochs=10, callbacks=[checkpoint, tensorboard])
+history = model.fit(X_train, y_train, validation_data=[X_val, y_val], batch_size=32, epochs=12, callbacks=[early_stop, checkpoint, tensorboard])
