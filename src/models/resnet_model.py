@@ -1,17 +1,26 @@
 from tensorflow.keras.applications import ResNet50
 from tensorflow.keras import models, layers, Sequential
 
-def get_resnet50_model():
+def get_resnet50_model(variant='base'):
     # Load the ResNet50 model pretrained on ImageNet
-    base_model = ResNet50(include_top=False)
+    base_model = ResNet50(include_top=False, input_shape=(224, 224, 3))
+    train_from = 150
 
-    # Freeze all layers
-    base_model.trainable = False
+    if variant == 'finetune':
+        base_model.trainable = True
+        for layer in base_model.layers[:train_from]:
+            layer.trainable = False
+    else:
+        # Freeze all layers
+        base_model.trainable = False
+    
+    model_append = [layers.GlobalAveragePooling2D()]
 
-    model = Sequential([
-        base_model,
-        layers.GlobalAveragePooling2D(),
-        layers.Dense(1, activation="sigmoid")
-    ])
+    if variant == 'dropout':
+        model_append.append(layers.Dropout(0.3))
+
+    model_append.append(layers.Dense(1, activation='sigmoid'))
+
+    model = Sequential([base_model] + model_append)
 
     return model

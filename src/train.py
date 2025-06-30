@@ -18,8 +18,10 @@ y_val = np.load("data/processed/DDD-kaggle/val_labels.npy")
 # Reshape y_val (num_val_examples,) to have the same shape as model predictions in tf (num_val_examples, 1)
 y_val = y_val.reshape(-1, 1)
 
+# Choose model variant: 'base', 'dropout', 'finetune'
+model_variant = 'finetune'
 # Load ResNet50 model
-model = get_resnet50_model()
+model = get_resnet50_model(variant=model_variant)
 
 # Configure model settings for training
 model.compile(optimizer=Adam(learning_rate=1e-4), loss=BinaryCrossentropy(), metrics=[BinaryAccuracy(), Precision(), Recall(), AUC(), F1Score(threshold=0.5)])
@@ -27,9 +29,9 @@ model.compile(optimizer=Adam(learning_rate=1e-4), loss=BinaryCrossentropy(), met
 # Callbacks
 # Create the EarlyStopping callback
 early_stop = EarlyStopping(monitor='val_loss', patience=3, restore_best_weights=True)
-checkpoint = ModelCheckpoint("models/resnet50_modified.h5", save_best_only=True)
-log_dir = "logs/fit/" #+ datetime.datetime.now().to_str()
+checkpoint = ModelCheckpoint(f"models/{model_variant}.h5", save_best_only=True)
+log_dir = "logs/fit/" 
 tensorboard = TensorBoard(log_dir=log_dir)
 
 # Train modified ResNet50
-history = model.fit(X_train, y_train, validation_data=[X_val, y_val], batch_size=32, epochs=12, callbacks=[early_stop, checkpoint, tensorboard])
+history = model.fit(X_train, y_train, validation_data=[X_val, y_val], batch_size=32, epochs=15, callbacks=[early_stop, checkpoint, tensorboard])
