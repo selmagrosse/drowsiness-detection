@@ -5,7 +5,7 @@ import shutil
 source_dir = "data/processed/YawDD"
 output_dir = "data/processed/YawDD/to-label"
 
-dataset_size = 300
+dataset_size = 500
 all_imgs = [img for img in os.listdir(source_dir) if img.endswith(".jpg")]
 sampled_imgs = random.sample(all_imgs, dataset_size)
 
