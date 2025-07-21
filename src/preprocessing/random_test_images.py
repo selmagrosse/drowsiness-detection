@@ -5,13 +5,15 @@ import shutil
 source_dir = "data/processed/YawDD"
 output_dir = "data/processed/YawDD/test-sample"
 train_val_dir = "data/processed/YawDD/images-sample"
+tune_dir = "data/processed/YawDD/tune-sample"
 
 existing_files = set(os.listdir(train_val_dir))
+tune_files = set(os.listdir(tune_dir))
 
-dataset_size = 100
+dataset_size = 200
 # Get additional images that haven't been sampled yet
 all_imgs = [img for img in os.listdir(source_dir) if img.endswith(".jpg")]
-unsampled_imgs = [img for img in all_imgs if img not in existing_files]
+unsampled_imgs = [img for img in all_imgs if img not in existing_files and img not in tune_files]
 
 sampled_imgs = random.sample(unsampled_imgs, dataset_size)
 

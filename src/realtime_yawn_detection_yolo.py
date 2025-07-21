@@ -2,7 +2,7 @@ import cv2 as cv
 from ultralytics import YOLO
 
 # Load the trained YOLO model
-model = YOLO("runs/detect/train4/weights/best.pt")
+model = YOLO("runs/detect/train2/weights/best.pt")
 
 # Open webcam (0 = default camera)
 cap = cv.VideoCapture(0)
@@ -13,7 +13,7 @@ while cap.isOpened():
         break
 
     # Run YOLOv8 inference on the frame
-    results = model(frame, conf=0.25)
+    results = model(frame, conf=0.5, iou=0.3)
 
     # Draw the results on the frame
     annotated_frame = results[0].plot()
