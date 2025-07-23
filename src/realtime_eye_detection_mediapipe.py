@@ -10,10 +10,6 @@ model = load_model("models/finetune.h5")
 mean = np.array([0.485, 0.456, 0.406])
 std  = np.array([0.229, 0.224, 0.225])
 
-# Load Haar cascade classifiers
-face_cascade = cv.CascadeClassifier("models/haar_cascade_classifiers/haarcascade_frontalface_default.xml")
-eye_cascade = cv.CascadeClassifier("models/haar_cascade_classifiers/haarcascade_eye.xml")
-
 # Preprocess the image
 def preprocess(img):
     img = cv.resize(img, (224, 224))
