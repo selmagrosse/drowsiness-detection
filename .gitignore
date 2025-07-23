@@ -3,3 +3,8 @@ __pycache__
 .DS_Store
 *.jpg
 notebooks/.ipynb_checkpoints/
+*.yaml
+data/
+logs/
+models/
+runs/
