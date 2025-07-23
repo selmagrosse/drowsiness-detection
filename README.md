@@ -9,13 +9,10 @@ This project implements real-time drowsiness detection system by combining two d
 
 The model runs in real time and camera can be used to monitor signs of drowsiness and tiredness - prolonged yawning and/or eye closure. If signs of drowsiness or tiredness are detected, an appropriate status alerts is triggered.
 
----
-
 ## Motivation
 
 Driver drowsiness is a major cause of accidents worldwide. Monitoring states of the driver and detecting states in which the driver is not fully alert, can be useful to trigger handover process to the vehicle.
 
----
 
 ## Models
 
@@ -25,7 +22,6 @@ Driver drowsiness is a major cause of accidents worldwide. Monitoring states of 
 - Framework: TensorFlow/Keras
 - Integration with MediaPipe for robust eye region extraction from face landmarks
 
----
 
 ### YOLOv8 Yawning Detector
 
