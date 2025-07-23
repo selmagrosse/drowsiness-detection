@@ -2,16 +2,16 @@
 
 ## Overview
 
-This project implements real-time drowsiness detection system by combining two deep learning models:
+This project implements real-time drowsiness detection by combining two deep learning models:
 
 - **ResNet50** model for the classification of eye states - open or closed
 - **YOLOv8** model for yawning detection
 
-The model runs in real time and camera can be used to monitor signs of drowsiness and tiredness - prolonged yawning and/or eye closure. If signs of drowsiness or tiredness are detected, an appropriate status alerts is triggered.
+The model runs in real-time, and the camera can be used to monitor signs of drowsiness and tiredness, such as prolonged yawning and/or eye closure. If signs of drowsiness or tiredness are detected, an appropriate status alert is triggered.
 
 ## Motivation
 
-Driver drowsiness is a major cause of accidents worldwide. Monitoring states of the driver and detecting states in which the driver is not fully alert, can be useful to trigger handover process to the vehicle.
+Driver drowsiness is a significant contributor to accidents worldwide. Monitoring states of the driver and detecting states in which the driver is not fully alert can be useful to trigger the handover process to the vehicle.
 
 
 ## Models
