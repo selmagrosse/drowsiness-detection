@@ -18,8 +18,8 @@ y_val = np.load("data/processed/DDD-kaggle/val_labels.npy")
 # Reshape y_val (num_val_examples,) to have the same shape as model predictions in tf (num_val_examples, 1)
 y_val = y_val.reshape(-1, 1)
 
-# Choose model variant: 'base', 'dropout', 'finetune'
-model_variant = 'finetune'
+# Choose model variant: 'base', 'finetuned'
+model_variant = 'finetuned'
 # Load ResNet50 model
 model = get_resnet50_model(variant=model_variant)
 

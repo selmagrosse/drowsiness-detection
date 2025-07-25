@@ -6,7 +6,7 @@ def get_resnet50_model(variant='base'):
     base_model = ResNet50(include_top=False, input_shape=(224, 224, 3))
     train_from = 150
 
-    if variant == 'finetune':
+    if variant == 'finetuned':
         base_model.trainable = True
         for layer in base_model.layers[:train_from]:
             layer.trainable = False
@@ -15,10 +15,6 @@ def get_resnet50_model(variant='base'):
         base_model.trainable = False
     
     model_append = [layers.GlobalAveragePooling2D()]
-
-    if variant == 'dropout':
-        model_append.append(layers.Dropout(0.3))
-
     model_append.append(layers.Dense(1, activation='sigmoid'))
 
     model = Sequential([base_model] + model_append)

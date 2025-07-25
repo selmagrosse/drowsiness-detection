@@ -9,7 +9,7 @@ y_test = np.load("data/processed/DDD-kaggle/test_labels.npy")
 y_test = y_test.reshape(-1, 1)
 
 # Load the updated resnet model
-model = load_model("models/finetune.h5")
+model = load_model("models/finetuned.h5")
 
 # Evaluate on the test dataset
 results = model.evaluate(X_test, y_test, batch_size=32, verbose=1)

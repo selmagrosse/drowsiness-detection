@@ -5,8 +5,8 @@ import mediapipe as mp
 from ultralytics import YOLO
 import time
 
-# Load the trained ResNet50 model ('finetune' version)
-resnet_model = load_model("models/resnet/finetune.h5")
+# Load the trained ResNet50 model ('finetuned' version)
+resnet_model = load_model("models/resnet/finetuned.h5")
 # Load YOLO model
 yolo_model = YOLO("runs/detect/train2/weights/best.pt")
 
