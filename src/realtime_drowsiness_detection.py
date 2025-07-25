@@ -6,13 +6,13 @@ from ultralytics import YOLO
 import time
 
 # Load the trained ResNet50 model ('finetune' version)
-resnet_model = load_model("models/finetune.h5")
+resnet_model = load_model("models/resnet/finetune.h5")
 # Load YOLO model
 yolo_model = YOLO("runs/detect/train2/weights/best.pt")
 
 # Time thresholds in seconds
-DROWSY_DURATION = 2.5   # seconds
-TIRED_DURATION = 1.0
+DROWSY_DURATION = 1.0   # seconds
+TIRED_DURATION = 1.5
 
 # Mean and std of ImageNet will be used to normalize the images
 mean = np.array([0.485, 0.456, 0.406])
@@ -91,7 +91,6 @@ while True:
                 try:
                     eye_img = preprocess(eye_img)
                     pred = resnet_model.predict(eye_img)
-                    # label = "Closed" if pred > 0.5 else "Open"
                     eyes_closed = pred > 0.5
 
                     # Draw ractangle around the eyes and add label
