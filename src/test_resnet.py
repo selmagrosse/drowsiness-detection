@@ -13,7 +13,6 @@ model = load_model("models/resnet/finetuned.h5")
 
 # Evaluate on the test dataset
 results = model.evaluate(X_test, y_test, batch_size=32, verbose=1)
-#print("Test results:", dict(zip(model.metrics_names, results)))
 
 # Predict labels
 y_pred_probs = model.predict(X_test)
