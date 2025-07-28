@@ -42,6 +42,11 @@ Contains videos recorded inside vehicles.
 
 The trained models can be downloaded from [HuggingFace](https://huggingface.co/selmagrosse/drowsiness_detection/tree/main).
 
+## Additional Resources
+
+- For full evaluation details, please refer to the Kaggle scripts available in the `notebooks/` directory: [Eye Classification Notebook](https://www.kaggle.com/code/selmagrosse/drowsiness-detection-eye-classification) and [Yawning Detection Notebook] (https://www.kaggle.com/code/selmagrosse/yawn-detection-yolo/edit/run/252056062)
+- You can also see the full Kaggle project here: [Kaggle Project Link](https://www.kaggle.com/your-username/your-project-name)
+
 ## Setup
 
 ### Requirements
@@ -65,5 +70,5 @@ pip install -r requirements.txt
 To start real-time drowsiness detection using a webcam:
 
 ```bash
-python src/realtime_drowsiness_detection.py
+python src/realtime/realtime_drowsiness_detection.py
 ```
