@@ -64,7 +64,7 @@ while True:
     # Yawn detection with YOLO
     yolo_results = yolo_model.predict(source=frame, conf=0.5, iou=0.3, imgsz=640, verbose=False)
     yawn_detected = len(yolo_results[0].boxes) > 0
-    # Draw the results on the frame
+    # Draw results on the frame
     annotated_frame = yolo_results[0].plot()
 
     # Open/closed eye detection and classification with MediaPipe + ResNet

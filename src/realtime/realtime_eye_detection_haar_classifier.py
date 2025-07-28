@@ -22,7 +22,7 @@ def preprocess(img):
     # Expand to (1, 224, 224, 3) size for the Keras model
     return np.expand_dims(img, axis=0)
 
-# Start the webcam (to open default camera, pass 0)
+# Open webcam (0 = default camera)
 capture = cv.VideoCapture(0)
 if not capture.isOpened():
     print("Cannot open camera.")
