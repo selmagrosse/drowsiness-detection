@@ -44,7 +44,7 @@ The trained models can be downloaded from [HuggingFace](https://huggingface.co/s
 
 ## Additional Resources
 
-- For full evaluation details and results, please refer to the Kaggle scripts available in the `notebooks/` directory: [Eye Classification Notebook](https://www.kaggle.com/code/selmagrosse/drowsiness-detection-eye-classification) and [Yawning Detection Notebook] (https://www.kaggle.com/code/selmagrosse/yawn-detection-yolo/edit/run/252056062)
+- For full evaluation details and results, please refer to the Kaggle scripts available in the `notebooks/` directory: [Eye Classification Notebook](https://www.kaggle.com/code/selmagrosse/drowsiness-detection-eye-classification) and [Yawning Detection Notebook](https://www.kaggle.com/code/selmagrosse/yawn-detection-yolo/edit/run/252056062)
 
 ## Setup
 
