@@ -3,7 +3,7 @@ import numpy as np
 from tensorflow.keras.models import load_model
 
 # Load the trained ResNet50 model ('finetuned' version)
-model = load_model("models/finetuned.h5")
+model = load_model("models/resnet/finetuned.h5")
 
 # Mean and std of ImageNet will be used to normalize the images
 mean = np.array([0.485, 0.456, 0.406])

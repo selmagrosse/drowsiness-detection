@@ -8,7 +8,7 @@ import time
 # Load the trained ResNet50 model ('finetuned' version)
 resnet_model = load_model("models/resnet/finetuned.h5")
 # Load YOLO model
-yolo_model = YOLO("runs/detect/train2/weights/best.pt")
+yolo_model = YOLO("models/yolo/best.pt")
 
 # Time thresholds in seconds
 DROWSY_DURATION = 1.0   # seconds
