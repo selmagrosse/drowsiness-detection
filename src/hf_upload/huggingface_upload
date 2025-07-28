@@ -1,8 +1,0 @@
-from huggingface_hub import HfApi
-import os
-
-api = HfApi()
-repo_id = "selmagrosse/drowsiness_detection"
-api.upload_file(path_or_fileobj="models/resnet/base.h5", path_in_repo="resnet/base.h5", repo_id=repo_id, repo_type="model")
-api.upload_file(path_or_fileobj="models/resnet/finetuned.h5", path_in_repo="resnet/finetuned.h5", repo_id=repo_id, repo_type="model")
-api.upload_file(path_or_fileobj="runs/detect/train2/weights/best.pt", path_in_repo="yolo/best.pt", repo_id=repo_id, repo_type="model")
