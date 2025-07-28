@@ -65,5 +65,5 @@ pip install -r requirements.txt
 To start real-time drowsiness detection using a webcam:
 
 ```bash
-python realtime_drowsiness_detection.py
+python src/realtime_drowsiness_detection.py
 ```
