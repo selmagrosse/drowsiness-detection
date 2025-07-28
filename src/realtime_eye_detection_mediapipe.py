@@ -31,7 +31,7 @@ face_mesh = mp_face_mesh.FaceMesh(static_image_mode=False,
 LEFT_EYE = [33, 133]
 RIGHT_EYE = [362, 263]
 
-# Start the webcam (to open default camera, pass 0)
+# Open webcam (0 = default camera)
 capture = cv.VideoCapture(0)
 if not capture.isOpened():
     print("Cannot open camera.")

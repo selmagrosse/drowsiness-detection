@@ -7,11 +7,11 @@ import time
 
 # Load the trained ResNet50 model ('finetuned' version)
 resnet_model = load_model("models/resnet/finetuned.h5")
-# Load YOLO model
+# Load the trained YOLO model
 yolo_model = YOLO("models/yolo/best.pt")
 
 # Time thresholds in seconds
-DROWSY_DURATION = 1.0   # seconds
+DROWSY_DURATION = 1.0
 TIRED_DURATION = 1.5
 
 # Mean and std of ImageNet will be used to normalize the images
@@ -43,7 +43,7 @@ RIGHT_EYE = [362, 263]
 eyes_closed_start_time = None
 yawn_start_time = None
 
-# Start the webcam (to open default camera, pass 0)
+# Open webcam (0 = default camera)
 capture = cv.VideoCapture(0)
 if not capture.isOpened():
     print("Cannot open camera.")

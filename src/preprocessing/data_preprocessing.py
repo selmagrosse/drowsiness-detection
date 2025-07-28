@@ -33,6 +33,7 @@ def process_image(img_path):
     return img
 
 
+# Go through all the images in the dataset and create labels
 for label, folder in enumerate(folders):
     folder_path = os.path.join(raw_dir, folder)
     for filename in os.listdir(folder_path):

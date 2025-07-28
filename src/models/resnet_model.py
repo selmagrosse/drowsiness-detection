@@ -8,6 +8,7 @@ def get_resnet50_model(variant='base'):
 
     if variant == 'finetuned':
         base_model.trainable = True
+        # Freeze all layers before the 150th layer
         for layer in base_model.layers[:train_from]:
             layer.trainable = False
     else:
